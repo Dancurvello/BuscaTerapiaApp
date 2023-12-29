@@ -1,10 +1,12 @@
-import "./App.css";
-import Button from "./components/button/Button";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes/appRoutes";
 
 function App() {
   return (
     <div>
-      <Button />
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
     </div>
   );
 }

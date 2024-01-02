@@ -1,10 +1,12 @@
 // FormLogin.jsx
 
+import GoogleSignIn from "./GoogleSignIn";
+
 const FormLogin = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen ">
-      <div className="w-529 h-771 flex-shrink-0 bg-white rounded-25 shadow-3xl flex flex-col items-center rounded-lg justify-center">
-        <div className="p-20 rounded-lg mb-4">
+    <div className="flex items-center justify-center min-h-screen gradient-background ">
+      <div className="w-529 h-771 flex-shrink-0 bg-fefffe rounded-30 shadow-3xl flex flex-col items-center rounded-lg justify-center">
+        <div className="p-20 rounded-lg mb-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4 text-black font-poppins">
               Entrar
@@ -48,6 +50,9 @@ const FormLogin = () => {
               >
                 Login
               </button>
+              <br />
+              <br />
+              <GoogleSignIn />
             </div>
           </form>
         </div>

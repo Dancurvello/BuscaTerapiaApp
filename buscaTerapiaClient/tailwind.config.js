@@ -5,6 +5,7 @@ export default {
     extend: {
       boxShadow: {
         "3xl": "0 8px 19px 4px rgba(0, 0, 0, 0.25)",
+        "4xl": "0px 8px 20px 0px rgba(0, 0, 0, 0.10)",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

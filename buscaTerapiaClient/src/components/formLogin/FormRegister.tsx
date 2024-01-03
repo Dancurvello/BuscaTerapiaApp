@@ -1,18 +1,15 @@
 import { useState } from "react";
 import GoogleSignIn from "./GoogleSignIn";
-import { Link } from "react-router-dom";
 import "./FormLogin.css";
 
 const FormLogin = () => {
   const [isLoginForm, setIsLoginForm] = useState(true);
 
-  const handleRegisterClick = (e) => {
-    e.preventDefault();
+  const handleRegisterClick = () => {
     setIsLoginForm(false);
   };
 
-  const handleBackToLoginClick = (e) => {
-    e.preventDefault();
+  const handleBackToLoginClick = () => {
     setIsLoginForm(true);
   };
 
@@ -32,7 +29,7 @@ const FormLogin = () => {
               className="text-4xl font-bold mb-4 text-black font-poppins"
               style={{ paddingBottom: "30px" }}
             >
-              Entrar
+              Registrar
             </h1>
           </div>
           <form action="" method="post">
@@ -91,26 +88,26 @@ const FormLogin = () => {
             <div>
               <p>Não tem uma conta?</p>
               <div style={{ paddingBottom: "25px" }}>
-                <Link
-                  to="/register"
+                <a
+                  href="/register"
                   className="text-blue-500"
                   onClick={handleRegisterClick}
                 >
                   Registrar-se
-                </Link>
+                </a>
               </div>
             </div>
           ) : (
             <div>
               <p>Já tem uma conta?</p>
               <div style={{ paddingBottom: "25px" }}>
-                <Link
-                  to="/login"
+                <a
+                  href="/login"
                   className="text-blue-500"
                   onClick={handleBackToLoginClick}
                 >
                   Voltar para o login
-                </Link>
+                </a>
               </div>
             </div>
           )}

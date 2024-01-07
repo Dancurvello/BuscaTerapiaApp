@@ -16,6 +16,9 @@ export default {
       borderRadius: {
         30: "30px",
       },
+      paddingTop: {
+        150: "150px",
+      },
     },
   },
   plugins: [

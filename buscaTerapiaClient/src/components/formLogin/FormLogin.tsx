@@ -1,38 +1,35 @@
 import { useState } from "react";
 import GoogleSignIn from "./GoogleSignIn";
-import { Link } from "react-router-dom";
 import "./FormLogin.css";
 
 const FormLogin = () => {
-  const [isLoginForm, setIsLoginForm] = useState(true);
+  const [isRegisterForm, setIsRegisterForm] = useState(false);
 
-  const handleRegisterClick = (e) => {
-    e.preventDefault();
-    setIsLoginForm(false);
-  };
-
-  const handleBackToLoginClick = (e) => {
-    e.preventDefault();
-    setIsLoginForm(true);
+  const handleFormToggle = () => {
+    setIsRegisterForm((prev) => !prev);
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen gradient-background ">
+    <div
+      className={`flex items-center justify-center min-h-screen gradient-background ${
+        isRegisterForm ? "register-form-container" : ""
+      }`}
+    >
+      {" "}
       <div
         className={`w-529 h-771 flex-shrink-0 bg-fefffe rounded-30 shadow-3xl flex flex-col items-center rounded-lg justify-center ${
-          isLoginForm ? "login-form" : "register-form"
+          isRegisterForm ? "register-form" : "login-form"
         }`}
       >
-        <div
-          className="p-20 rounded-lg mb-8"
-          style={{ paddingTop: "30px", paddingBottom: "30px" }}
-        >
+        <div className="p-20 rounded-lg mb-8 pt-10">
           <div className="text-center">
             <h1
-              className="text-4xl font-bold mb-4 text-black font-poppins"
+              className={`text-4xl font-bold mb-4 text-black font-poppins ${
+                isRegisterForm ? "flipped-text" : ""
+              }`}
               style={{ paddingBottom: "30px" }}
             >
-              Entrar
+              {isRegisterForm ? "Registrar-se" : "Entrar"}
             </h1>
           </div>
           <form action="" method="post">
@@ -64,12 +61,28 @@ const FormLogin = () => {
                 required
               />
             </div>
+            {isRegisterForm && (
+              <div className="mb-4">
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-medium text-gray-600 font-poppins"
+                ></label>
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirmar senha"
+                  id="confirmPassword"
+                  className="mt-1 p-2 w-full border-none rounded-full shadow-4xl"
+                  required
+                />
+              </div>
+            )}
             <div className="flex justify-end">
               <p
                 className="text-gray-400 font-lato text-sm"
                 style={{ paddingBottom: "30px" }}
               >
-                Esqueceu a senha?
+                {isRegisterForm ? "" : "Esqueceu a senha?"}
               </p>
             </div>
 
@@ -78,42 +91,35 @@ const FormLogin = () => {
                 type="submit"
                 className="bg-black text-white py-2 px-4 rounded-md hover:bg-gray-600 focus:outline-none focus:ring focus:border-blue-300 font-poppins font-bold"
               >
-                Entrar
+                {isRegisterForm ? "Registrar" : "Entrar"}
               </button>
-              <br />
-              <br />
-              <GoogleSignIn />
+              <div className="pt-7 text-gray-400 font-lato text-sm">
+                <p>OU</p>
+              </div>
+              <div className="pt-7 text-1xl font-bold mb-4 text-black font-poppins">
+                <p>Entrar com o google</p>
+              </div>
+              <div className="flex items-center justify-center">
+                <GoogleSignIn isRegisterForm={isRegisterForm} />
+              </div>
             </div>
           </form>
         </div>
         <div>
-          {isLoginForm ? (
-            <div>
-              <p>Não tem uma conta?</p>
-              <div style={{ paddingBottom: "25px" }}>
-                <Link
-                  to="/register"
-                  className="text-blue-500"
-                  onClick={handleRegisterClick}
-                >
-                  Registrar-se
-                </Link>
-              </div>
+          <div>
+            <p>{isRegisterForm ? "Já tem uma conta?" : "Não tem uma conta?"}</p>
+            <div
+              className="flex items-center justify-center"
+              style={{ paddingBottom: "25px" }}
+            >
+              <button
+                onClick={handleFormToggle}
+                className="text-blue-500 hover:underline focus:outline-none"
+              >
+                {isRegisterForm ? "Entrar" : "Registrar-se"}
+              </button>
             </div>
-          ) : (
-            <div>
-              <p>Já tem uma conta?</p>
-              <div style={{ paddingBottom: "25px" }}>
-                <Link
-                  to="/login"
-                  className="text-blue-500"
-                  onClick={handleBackToLoginClick}
-                >
-                  Voltar para o login
-                </Link>
-              </div>
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </div>

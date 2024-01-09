@@ -1,7 +1,9 @@
 package br.com.buscaTerapia.buscaTerapiaServer.domains;
 
-import java.util.Date;
+import jakarta.persistence.Entity;
 
+import java.util.Date;
+@Entity
 public class Pacient extends User {
 
     private Long fkUser;

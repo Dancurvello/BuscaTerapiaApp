@@ -1,14 +1,13 @@
 package br.com.buscaTerapia.buscaTerapiaServer.domains;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // Indica que o hibernate vai criar uma tabela para cada classe que herdar de User
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long idUser;
     private String name;
     private String cpf;

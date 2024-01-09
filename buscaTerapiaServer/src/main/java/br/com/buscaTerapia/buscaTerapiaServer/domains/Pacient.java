@@ -1,6 +1,5 @@
-package br.com.buscaTerapia.buscaTerapiaServer.models;
+package br.com.buscaTerapia.buscaTerapiaServer.domains;
 
-import java.io.File;
 import java.util.Date;
 
 public class Pacient extends User {

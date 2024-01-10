@@ -1,0 +1,24 @@
+/* Adicione essas regras ao seu arquivo de estilo (por exemplo, App.css) */
+
+.login-form {
+  transition: transform 0.5s ease-in-out;
+  transform: rotateY(0deg);
+}
+
+.register-form {
+  transition: transform 0.5s ease-in-out;
+  transform: rotateY(180deg);
+}
+
+/* Adicione essas regras para corrigir a inversão do texto no formulário de registro */
+.register-form label,
+.register-form input,
+.register-form button,
+.register-form p {
+  transform: rotateY(180deg);
+}
+.flipped-text {
+  transform: rotateY(180deg);
+}
+
+/* Adicione estas regras ao seu arquivo de estilo (por exemplo, App.css) */
